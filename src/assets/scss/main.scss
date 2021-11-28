@@ -10,13 +10,13 @@ $main-font: "Oranienbaum", serif;
 html {
   background-color: $main-color;
   text-align: center;
-  overflow: hidden;
+  overflow: scroll;
 
   body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: scroll;
 
     .canvas {
       width: 100%;
@@ -69,7 +69,8 @@ html {
             height: 410px;
             object-fit: cover;
             position: absolute;
-            display: none;
+            display: block;
+            opacity: 0;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);

@@ -1,31 +1,45 @@
 import Webgl from './src/assets/js/Webgl';
-import LoadImages from './src/assets/js/LoadImages';
 
 class App {
     constructor() {
         this.items = document.querySelectorAll('li');
-        this.images = document.querySelectorAll('img');
+
+        this.webgl = new Webgl();
+
+        this.textures = this.webgl.scene.children;
+
+        this.objects = [
+            {
+                item: this.items[0],
+                texture: this.textures[0]
+            },
+            {
+                item: this.items[1],
+                texture: this.textures[1]
+            },
+            {
+                item: this.items[2],
+                texture: this.textures[2]
+            }
+        ]
 
         this.isVisible();
         this.isHidden();
-
-        this.webgl = new Webgl();
-        this.loadedImg = new LoadImages();
-        console.log(this.webgl)
     }
 
     isVisible() {
-        this.items.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.childNodes[3].style.display = 'block';
+        this.objects.forEach(object => {
+            object.texture.visible = false;
+            object.item.addEventListener('mouseenter', () => {
+                object.texture.visible = true;
             });
         });
     }
 
     isHidden() {
-        this.items.forEach(item => {
-            item.addEventListener('mouseleave', () => {
-                item.childNodes[3].style.display = 'none';
+        this.objects.forEach(object => {
+            object.item.addEventListener('mouseleave', () => {
+                object.texture.visible = false;
             });
         });
     }
