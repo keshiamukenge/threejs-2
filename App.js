@@ -1,4 +1,5 @@
 import Webgl from './src/assets/js/Webgl';
+import LoadImages from './src/assets/js/LoadImages';
 
 class App {
     constructor() {
@@ -9,6 +10,7 @@ class App {
         this.isHidden();
 
         this.webgl = new Webgl();
+        this.loadedImg = new LoadImages();
         console.log(this.webgl)
     }
 
