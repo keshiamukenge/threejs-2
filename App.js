@@ -1,11 +1,15 @@
-import CreateObject from './src/assets/js/CreateObject.js'
+import Webgl from './src/assets/js/Webgl';
 
 class App {
     constructor() {
-        this.items = new CreateObject().items;
+        this.items = document.querySelectorAll('li');
+        this.images = document.querySelectorAll('img');
 
         this.isVisible();
         this.isHidden();
+
+        this.webgl = new Webgl();
+        console.log(this.webgl)
     }
 
     isVisible() {
