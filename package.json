@@ -2,11 +2,11 @@
   "name": "basic-project",
   "version": "1.0.0",
   "description": "my basic project",
-  "main": "app.js",
+  "main": "./src/App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html"
   },
   "author": "Keshia Mukenge",
   "license": "ISC",
@@ -20,13 +20,22 @@
   },
   "dependencies": {
     "g": "^2.0.1",
+    "gs": "^0.0.2",
     "gsap": "^3.8.0",
     "lib": "^4.3.3",
     "lil": "^0.1.5",
     "lil-gui": "^0.14.0",
+    "medias": "^0.0.0",
     "r": "^0.0.5",
     "src": "^1.1.2",
     "thr": "^0.0.6",
     "three": "^0.128.0"
-  }
+  },
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
 }
