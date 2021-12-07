@@ -49,10 +49,6 @@ export default class Webgl {
         this.updateRender();
     }
 
-    lerp(start, end, t) {
-        return start * (1 - t) + end * t;
-    }
-
     resizeScene() {
         window.addEventListener('resize', () => {
             this.sizes.width = window.innerWidth;
@@ -119,7 +115,7 @@ export default class Webgl {
                     gl_FragColor = texture;
                 }`,
             uniforms: {
-                uOffset: { value: this.offset },
+                uOffset: { value: new THREE.Vector2(0.0, 0.0) },
                 uTexture: { value: this.texture }
             }
         });
@@ -154,7 +150,6 @@ export default class Webgl {
             this.links[i].addEventListener('mouseenter', () => {
                 this.object3d.mesh.visible =  true;
                 this.object3d.mesh.material.uniforms.uTexture.value =  new THREE.TextureLoader().load(this.images[i].src);
-                /* console.log(this.mouse, this.offset); */
             });
         }
     }
@@ -175,8 +170,8 @@ export default class Webgl {
     updateRender() {
         this.elapsedTime = this.time.getElapsedTime();
 
-        this.offset.x = this.mouse.x * 300;
-        this.offset.y = - this.mouse.y * 200;
+        this.object3d.mesh.material.uniforms.uOffset.value.x = (this.mouse.x - this.offset.x) * 200;
+        this.object3d.mesh.material.uniforms.uOffset.value.y = - (this.mouse.x - this.offset.y) * 200;
         
         this.object3d.mesh.material.uniforms.uTexture.needsUpdate = true;
         
