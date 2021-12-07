@@ -75,7 +75,8 @@ html {
             transform: translateY(100px);
 
             &:hover {
-              opacity: 1;
+              transition: 200ms linear;
+              opacity: 0.6;
               cursor: pointer;
               z-index: 9;
             }

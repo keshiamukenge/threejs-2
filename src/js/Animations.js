@@ -29,15 +29,15 @@ export default class Animations {
     downLink() {
         this.links.forEach(link => {
             GSAP.to(link, {
-                duration: 0.4,
+                duration: 0.2,
                 y: 100
-            }, '-=0.3');
+            });
         });
 
         this.links.forEach(link => {
             GSAP.to(link, {
                 delay: 2,
-                duration: 0.4,
+                duration: 0.2,
                 y: -4
             });
         });
@@ -47,9 +47,9 @@ export default class Animations {
         await this.onLoaded();
             this.links.forEach(link => {
                 GSAP.to(link, {
-                    duration: 0.4,
-                    y: -4
-                }, '-=0.3');
+                    duration: 0.2,
+                    y: 0
+                }, '+=0.005');
             });
     }
 
