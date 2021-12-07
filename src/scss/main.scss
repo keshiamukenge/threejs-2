@@ -18,6 +18,26 @@ html {
     height: 100vh;
     overflow: hidden;
 
+    #loader{
+      width: 100%;
+      height: fit-content;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+    
+      p{
+        width: fit-content;
+        height: fit-content;
+        font-size: 50px;
+        font-family: $main-font;
+        color: $secondary-color;
+        margin: auto;
+        transform: translateY(50px);
+      }
+    }
+
     .canvas {
       width: 100%;
       height: 100%;
@@ -26,14 +46,13 @@ html {
 
       ul {
         font-size: 20px;
-        width: 100%;
+        width: 100vw;
         height: 85%;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: left;
-        padding-left: 8%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -41,6 +60,8 @@ html {
         li {
           width: fit-content;
           position: relative;
+          overflow: hidden;
+          margin: auto;
 
           a {
             color: $secondary-color;
@@ -48,9 +69,10 @@ html {
             font-size: 100px;
             text-transform: uppercase;
             text-decoration: none;
-            opacity: 0.3;
             position: relative;
             transition: 500ms linear;
+            display: block;
+            transform: translateY(100px);
 
             &:hover {
               opacity: 1;

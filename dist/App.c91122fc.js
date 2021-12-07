@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({42:[function(require,module,exports) {
+})({33:[function(require,module,exports) {
 var define;
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -860,7 +860,7 @@ try {
   }
 }
 
-},{}],41:[function(require,module,exports) {
+},{}],31:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45094,7 +45094,7 @@ exports.ZeroFactor = ZeroFactor;
 exports.ZeroSlopeEnding = ZeroSlopeEnding;
 exports.ZeroStencilOp = ZeroStencilOp;
 exports.sRGBEncoding = sRGBEncoding;
-},{}],16:[function(require,module,exports) {
+},{}],44:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49101,7 +49101,7 @@ exports._missingPlugin = _missingPlugin;
 exports._getSetter = _getSetter;
 exports._getCache = _getCache;
 exports._colorExp = _colorExp;
-},{}],17:[function(require,module,exports) {
+},{}],45:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50534,7 +50534,7 @@ exports.default = CSSPlugin;
 exports._getBBox = _getBBox;
 exports._createElement = _createElement;
 exports.checkPrefix = _checkPropPrefix;
-},{"./gsap-core.js":16}],13:[function(require,module,exports) {
+},{"./gsap-core.js":44}],32:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50575,11 +50575,7 @@ exports.Bounce = _gsapCore.Bounce;
 exports.Sine = _gsapCore.Sine;
 exports.Expo = _gsapCore.Expo;
 exports.Circ = _gsapCore.Circ;
-},{"./gsap-core.js":16,"./CSSPlugin.js":17}],39:[function(require,module,exports) {
-module.exports = "#define GLSLIFY 1\nuniform mat4 projectionMatrix;\nuniform mat4 modelViewMatrix;\nuniform vec2 uOffset;\n\nattribute vec3 position;\nattribute vec2 uv;\n\nfloat M_PI = 3.1415926535897932384626433832795;\n\nvarying vec2 vUv;\n\nvec3 deformationCurve(vec3 position, vec2 uv, vec2 offset) {\n    position.x = position.x + (sin(uv.y * M_PI) * offset.x);\n    position.y = position.y + (sin(uv.x * M_PI) * offset.y);\n    return position;\n}\n\nvoid main() {\n    vUv = uv;\n\n    vec3 newPosition = deformationCurve(position, uv, uOffset);\n\n    gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );\n}";
-},{}],40:[function(require,module,exports) {
-module.exports = "precision mediump float;\n#define GLSLIFY 1\nuniform sampler2D uTexture;\n\nvarying vec2 vUv;\n\nvoid main() {\n    vec4 texture = texture2D(uTexture, vUv);\n    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n    gl_FragColor = texture;\n}";
-},{}],43:[function(require,module,exports) {
+},{"./gsap-core.js":44,"./CSSPlugin.js":45}],48:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50595,7 +50591,7 @@ function createObject(elementsArr) {
         link: item.querySelector('a') || null
     }));
 }
-},{}],38:[function(require,module,exports) {
+},{}],27:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50635,7 +50631,11 @@ class LoadImages {
     }
 }
 exports.default = LoadImages;
-},{"three":41,"./utils/createObject.js":43}],27:[function(require,module,exports) {
+},{"three":31,"./utils/createObject.js":48}],29:[function(require,module,exports) {
+module.exports = "#define GLSLIFY 1\nuniform mat4 projectionMatrix;\nuniform mat4 modelViewMatrix;\nuniform vec2 uOffset;\n\nattribute vec3 position;\nattribute vec2 uv;\n\nfloat M_PI = 3.1415926535897932384626433832795;\n\nvarying vec2 vUv;\n\nvec3 deformationCurve(vec3 position, vec2 uv, vec2 offset) {\n    position.x = position.x + (sin(uv.y * M_PI) * offset.x);\n    position.y = position.y + (sin(uv.x * M_PI) * offset.y);\n    return position;\n}\n\nvoid main() {\n    vUv = uv;\n\n    vec3 newPosition = deformationCurve(position, uv, uOffset);\n\n    gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );\n}";
+},{}],28:[function(require,module,exports) {
+module.exports = "precision mediump float;\n#define GLSLIFY 1\nuniform sampler2D uTexture;\n\nvarying vec2 vUv;\n\nvoid main() {\n    vec4 texture = texture2D(uTexture, vUv);\n    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n    gl_FragColor = texture;\n}";
+},{}],21:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50652,6 +50652,10 @@ var _gsap = require('gsap');
 
 var _gsap2 = _interopRequireDefault(_gsap);
 
+var _LoadImages = require('./LoadImages.js');
+
+var _LoadImages2 = _interopRequireDefault(_LoadImages);
+
 var _vertex = require('./shaders/vertex.glsl');
 
 var _vertex2 = _interopRequireDefault(_vertex);
@@ -50659,10 +50663,6 @@ var _vertex2 = _interopRequireDefault(_vertex);
 var _fragment = require('./shaders/fragment.glsl');
 
 var _fragment2 = _interopRequireDefault(_fragment);
-
-var _LoadImages = require('./LoadImages.js');
-
-var _LoadImages2 = _interopRequireDefault(_LoadImages);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50685,9 +50685,10 @@ class Webgl {
         this.offset = new THREE.Vector2(0.0, 0.0);
 
         this.images = new _LoadImages2.default().images;
+        this.imageRatio = this.images[0].width / this.images[0].height;
 
-        this.camera = new THREE.PerspectiveCamera(1000, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.camera.position.set(312, -180, 1000);
+        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.camera.position.set(this.images[0].width, this.images[0].height, 1000);
         this.viewSizeOptions = this.viewSize();
 
         this.object3d = this.createMesh();
@@ -50743,15 +50744,47 @@ class Webgl {
         this.geometry = new THREE.PlaneGeometry(250, 350, 20, 20);
         this.material = new THREE.RawShaderMaterial({
             transparent: true,
-            vertexShader: _vertex2.default,
-            fragmentShader: _fragment2.default,
+            vertexShader: `uniform mat4 projectionMatrix;
+                uniform mat4 modelViewMatrix;
+                uniform vec2 uOffset;
+
+                attribute vec3 position;
+                attribute vec2 uv;
+
+                float M_PI = 3.1415926535897932384626433832795;
+
+                varying vec2 vUv;
+
+                vec3 deformationCurve(vec3 position, vec2 uv, vec2 offset) {
+                position.x = position.x + (sin(uv.y * M_PI) * offset.x);
+                    position.y = position.y + (sin(uv.x * M_PI) * offset.y);
+                    return position;
+                }
+
+                void main() {
+                    vUv = uv;
+
+                    vec3 newPosition = deformationCurve(position, uv, uOffset);
+
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
+                }`,
+            fragmentShader: `precision mediump float;
+                uniform sampler2D uTexture;
+
+                varying vec2 vUv;
+
+                void main() {
+                    vec4 texture = texture2D(uTexture, vUv);
+                    gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                    gl_FragColor = texture;
+                }`,
             uniforms: {
                 uOffset: { value: this.offset },
                 uTexture: { value: this.texture }
             }
         });
         this.mesh = new THREE.Mesh(this.geometry, this.material);
-        this.mesh.scale.set(4, 3);
+        this.mesh.scale.set(this.imageRatio, 1, 1);
         this.mesh.position.set(this.offset.x, this.offset.y);
 
         return {
@@ -50762,8 +50795,17 @@ class Webgl {
 
     onMouseMove() {
         window.addEventListener('mousemove', e => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
+            _gsap2.default.to(this.mouse, {
+                x: e.clientX / this.sizes.width * 2 - 1,
+                y: -(e.clientY / this.sizes.height) * 2 + 1
+            });
+
+            this.vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5);
+            this.vector.unproject(this.camera);
+            this.dir = this.vector.sub(this.camera.position).normalize();
+            this.distance = -this.camera.position.z / this.dir.z;
+            this.pos = this.camera.position.clone().add(this.dir.multiplyScalar(this.distance));
+            this.object3d.mesh.position.copy(this.pos);
         });
     }
 
@@ -50772,6 +50814,7 @@ class Webgl {
             this.links[i].addEventListener('mouseenter', () => {
                 this.object3d.mesh.visible = true;
                 this.object3d.mesh.material.uniforms.uTexture.value = new THREE.TextureLoader().load(this.images[i].src);
+                /* console.log(this.mouse, this.offset); */
             });
         }
     }
@@ -50791,17 +50834,11 @@ class Webgl {
 
     updateRender() {
         this.elapsedTime = this.time.getElapsedTime();
-        this.offset.x = this.lerp(this.offset.x, this.mouse.x, 0.1);
-        this.offset.y = this.lerp(this.offset.y, this.mouse.y, 0.1);
 
-        _gsap2.default.to(this.offset, {
-            x: (this.mouse.x - this.offset.x) * 0.0005 * 2,
-            y: -(this.mouse.y - this.offset.y) * 0.0005 * 2
-        });
+        this.offset.x = this.mouse.x * 300;
+        this.offset.y = -this.mouse.y * 200;
 
-        let imageRatio = this.images[0].width / this.images[0].height;
         this.object3d.mesh.material.uniforms.uTexture.needsUpdate = true;
-        this.object3d.mesh.position.set(this.mouse.x - this.sizes.width / 2, -this.mouse.y + this.sizes.height / 2);
 
         this.renderer.render(this.scene, this.camera);
 
@@ -50811,7 +50848,82 @@ class Webgl {
     }
 }
 exports.default = Webgl;
-},{"regenerator-runtime/runtime":42,"three":41,"gsap":13,"./shaders/vertex.glsl":39,"./shaders/fragment.glsl":40,"./LoadImages.js":38}],23:[function(require,module,exports) {
+},{"regenerator-runtime/runtime":33,"three":31,"gsap":32,"./LoadImages.js":27,"./shaders/vertex.glsl":29,"./shaders/fragment.glsl":28}],28:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _gsap = require('gsap');
+
+var _gsap2 = _interopRequireDefault(_gsap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class Animations {
+    constructor() {
+        this.loader = document.querySelector('p');
+        this.links = [...document.querySelectorAll('a')];
+        this.upLink();
+        this.onClick();
+    }
+
+    onLoaded() {
+        return new Promise(resolve => {
+            window.addEventListener('load', () => {
+                _gsap2.default.to(this.loader, {
+                    duration: 0.8,
+                    y: -5
+                });
+
+                _gsap2.default.to(this.loader, {
+                    delay: 2,
+                    duration: 0.8,
+                    y: -60,
+                    onComplete: resolve
+                });
+            });
+        });
+    }
+
+    downLink() {
+        this.links.forEach(link => {
+            _gsap2.default.to(link, {
+                duration: 0.4,
+                y: 100
+            }, '-=0.3');
+        });
+
+        this.links.forEach(link => {
+            _gsap2.default.to(link, {
+                delay: 2,
+                duration: 0.4,
+                y: -4
+            });
+        });
+    }
+
+    async upLink() {
+        await this.onLoaded();
+        this.links.forEach(link => {
+            _gsap2.default.to(link, {
+                duration: 0.4,
+                y: -4
+            }, '-=0.3');
+        });
+    }
+
+    onClick() {
+        this.links.forEach(link => {
+            link.addEventListener('click', () => {
+                this.downLink();
+            });
+        });
+    }
+}
+exports.default = Animations;
+},{"gsap":32}],48:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -52959,7 +53071,7 @@ exports.GUI = GUI;
 exports.NumberController = NumberController;
 exports.OptionController = OptionController;
 exports.StringController = StringController;
-},{}],22:[function(require,module,exports) {
+},{}],47:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -52991,17 +53103,21 @@ class Gui extends _Webgl2.default {
         this.gui.add(this.object3d.mesh.scale, 'x').min(-1000).max(1000).step(1).name('mesh width');
         this.gui.add(this.object3d.mesh.scale, 'y').min(-1000).max(1000).step(1).name('mesh height');
         this.gui.add(this.object3d.mesh.scale, 'z').min(-1000).max(1000).step(0.5).name('mesh scale z');
-        this.gui.add(this.object3d.mesh.material.uniforms.uOffset.value, 'x').min(0.0).max(1.0).step(0.001).name('uOffset x');
-        this.gui.add(this.object3d.mesh.material.uniforms.uOffset.value, 'y').min(0.0).max(1.0).step(0.001).name('uOffset y');
+        this.gui.add(this.object3d.mesh.material.uniforms.uOffset.value, 'x').min(-100.0).max(100.0).step(0.001).name('uOffset x');
+        this.gui.add(this.object3d.mesh.material.uniforms.uOffset.value, 'y').min(-100.0).max(100.0).step(0.001).name('uOffset y');
     }
 }
 exports.default = Gui;
-},{"lil-gui":23,"./Webgl.js":27}],6:[function(require,module,exports) {
+},{"lil-gui":48,"./Webgl.js":21}],9:[function(require,module,exports) {
 'use strict';
 
 var _Webgl = require('./js/Webgl.js');
 
 var _Webgl2 = _interopRequireDefault(_Webgl);
+
+var _Animations = require('./js/Animations');
+
+var _Animations2 = _interopRequireDefault(_Animations);
 
 var _Gui = require('./js/Gui.js');
 
@@ -53011,14 +53127,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 class App {
     constructor() {
+        this.animations = new _Animations2.default();
         this.webgl = new _Webgl2.default();
         this.controller = new _Gui2.default();
-        console.log(this.controller);
     }
 }
 
 new App();
-},{"./js/Webgl.js":27,"./js/Gui.js":22}],21:[function(require,module,exports) {
+},{"./js/Webgl.js":21,"./js/Animations":28,"./js/Gui.js":47}],22:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -53047,7 +53163,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49161' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49475' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -53188,5 +53304,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[21,6], null)
+},{}]},{},[22,9], null)
 //# sourceMappingURL=/App.c91122fc.map
