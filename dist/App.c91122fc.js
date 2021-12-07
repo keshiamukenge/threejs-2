@@ -50688,7 +50688,7 @@ class Webgl {
         this.imageRatio = this.images[0].width / this.images[0].height;
 
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.camera.position.set(this.images[0].width, this.images[0].height, 1000);
+        this.camera.position.set(this.images[0].width, this.images[0].height, 800);
         this.viewSizeOptions = this.viewSize();
 
         this.object3d = this.createMesh();
@@ -53094,15 +53094,6 @@ class Gui extends _Webgl2.default {
     }
 
     addControlProperty() {
-        this.gui.add(this.camera.position, 'x').min(-1000).max(1000).step(1).name('camera x');
-        this.gui.add(this.camera.position, 'y').min(-1000).max(1000).step(1).name('camera y');
-        this.gui.add(this.camera.position, 'z').min(-1000).max(10000).step(1).name('camera z');
-        this.gui.add(this.object3d.mesh.position, 'x').min(-1000).max(1000).step(1).name('mesh x');
-        this.gui.add(this.object3d.mesh.position, 'y').min(-1000).max(1000).step(1).name('mesh y');
-        this.gui.add(this.object3d.mesh.position, 'z').min(-1000).max(1000).step(0.5).name('mesh z');
-        this.gui.add(this.object3d.mesh.scale, 'x').min(-1000).max(1000).step(1).name('mesh width');
-        this.gui.add(this.object3d.mesh.scale, 'y').min(-1000).max(1000).step(1).name('mesh height');
-        this.gui.add(this.object3d.mesh.scale, 'z').min(-1000).max(1000).step(0.5).name('mesh scale z');
         this.gui.add(this.object3d.mesh.material.uniforms.uOffset.value, 'x').min(-100.0).max(100.0).step(0.001).name('uOffset x');
         this.gui.add(this.object3d.mesh.material.uniforms.uOffset.value, 'y').min(-100.0).max(100.0).step(0.001).name('uOffset y');
     }
@@ -53163,7 +53154,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49475' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51939' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

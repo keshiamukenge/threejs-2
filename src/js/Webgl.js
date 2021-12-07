@@ -26,7 +26,7 @@ export default class Webgl {
         this.imageRatio = this.images[0].width / this.images[0].height;
 
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.camera.position.set(this.images[0].width, this.images[0].height, 1000);
+        this.camera.position.set(this.images[0].width, this.images[0].height, 800);
         this.viewSizeOptions = this.viewSize();
 
         this.object3d = this.createMesh();
